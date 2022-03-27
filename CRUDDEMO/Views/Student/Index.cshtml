@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CRUDDEMO.Models.JoinBindtblStud>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewBag.Title = "Index";
+}
+<table class="table table-bordered">
+    <tr>
+        <th>Student Id</th>
+        <th>Student Name</th>
+        <th>Student Age</th>
+        <th>Student Standard</th>
+        <th>Student Country</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.id</td>
+    <td>@item.name</td>
+    <td>@item.age</td>
+    <td>@item.standard</td>
+    <td>@item.country_name</td>
+    <td>@Html.ActionLink("Edit", "Create", "Student", new { id = item.id })</td>
+    <td>@Html.ActionLink("Delete", "Delete", "Student", new { id = item.id })</td>
+
+</tr>
+
+    }
+</table>
+<h2>@Html.ActionLink("Create", "Create", "Student")</h2>
+
+

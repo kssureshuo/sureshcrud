@@ -1,0 +1,41 @@
+﻿@model CRUDDEMO.Models.Student
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@using (Html.BeginForm("Create","Student",FormMethod.Post))
+{
+<table class="table table-bordered">
+    <tr>
+        <td></td>
+        <td>@Html.HiddenFor(m => m.id)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m => m.name)</td>
+        <td>@Html.TextBoxFor(m => m.name)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m => m.age)</td>
+        <td>@Html.TextBoxFor(m => m.age)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m => m.standard)</td>
+        <td>@Html.TextBoxFor(m => m.standard)</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m => m.country)</td>
+        <td>@Html.DropDownListFor(m => m.country,new SelectList(ViewBag.country,"c_id","c_name"),"---SELECT---"
+           , new { onchange = "this.options[this.selectedIndex].value;" }))</td>
+    </tr>
+    <tr>
+        <td>@Html.LabelFor(m => m.State)</td>
+        <td>@Html.DropDownListFor(m => m.State, new SelectList(ViewBag.state, "state_id", "state_name"), "---SELECT---")</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" value="@ViewBag.BT" class="btn btn-info" /></td>
+    </tr>
+</table>
+}
